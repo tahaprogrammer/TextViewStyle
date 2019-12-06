@@ -19,7 +19,7 @@ Hi guys , this libray for changing style of text in android Developement .
 
 ```groovy
 dependencies {
-	        implementation 'com.github.tahaprogrammer:TetxViewStyle:1.0.1'
+	        implementation 'com.github.tahaprogrammer:TextViewStyleByTaHa:1.0.1'
 	}
 ```
 
