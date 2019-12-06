@@ -6,18 +6,18 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 
 public class TextViewStyle extends View {
 
-    private String text;
+    private String Text = " ";
     private int textSize;
     private int textColor;
     private Paint paint = new Paint();
-    private int height, width;
-    private int DEFAULT_TEXT_SIZE = 20;
+    private int DEFAULT_TEXT_SIZE = 40;
     private String fonts[] = {"font1.ttf", "font2.ttf", "font3.otf", "font4.ttf", "font5.ttf"};
     private int textStyle = 0;
     private Typeface typeface;
@@ -25,9 +25,6 @@ public class TextViewStyle extends View {
 
     public TextViewStyle(Context context) {
         super(context);
-
-        setup();
-
     }
 
     public TextViewStyle(Context context, AttributeSet attrs) {
@@ -43,17 +40,16 @@ public class TextViewStyle extends View {
         textSize = typedArray.getInteger(R.styleable.TextViewStyle_textSize, DEFAULT_TEXT_SIZE);
 
 
-        CharSequence charSequence = typedArray.getString(R.styleable.TextViewStyle_text);
-
-        if (charSequence != null) {
-            text = charSequence.toString();
-        } else {
-            text = " ";
-        }
-
         textColor = typedArray.getColor(R.styleable.TextViewStyle_textColor, Color.BLACK);
 
         textStyle = typedArray.getInteger(R.styleable.TextViewStyle_textStyle, DEFAULT_TEXT_STYLE);
+
+
+        String mText = typedArray.getString(R.styleable.TextViewStyle_text);
+
+        if (mText != null) {
+            Text = mText;
+        }
 
         //Attributes text view
         AssetManager assetManager = context.getAssets();
@@ -72,8 +68,7 @@ public class TextViewStyle extends View {
     private void setup() {
 
         paint.setColor(Color.BLACK);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(8);
+        paint.setStyle(Paint.Style.FILL);
         paint.setColor(textColor);
         paint.setTextSize(textSize);
         paint.setTypeface(typeface);
@@ -82,7 +77,18 @@ public class TextViewStyle extends View {
     @Override
     protected void onDraw(Canvas canvas) {
 
-        canvas.drawText(text, 150, 150, paint);
+        canvas.drawText(Text, 0, textSize, paint);
     }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        Rect rect = new Rect();
+
+        paint.getTextBounds(Text, 0, Text.length(), rect);
+        rect.bottom += textSize;
+
+        setMeasuredDimension(rect.right, rect.bottom);
+    }
 }
