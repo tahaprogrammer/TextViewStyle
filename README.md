@@ -2,7 +2,7 @@
 Hi guys , this libray for changing style of text in android Developement .
 # Example 
 
-<img alt="Card sample" width="360" height="600" src="http://mrdeveloper.online/github/text_style.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Bar sample" width="360" height="600" src="http://mrdeveloper.online/github/text_style.png" />
+<img alt="Card sample" width="360" height="600" src="http://mrdeveloper.online/github/text_style.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp />
 
 # Example Usage
 
