@@ -8,12 +8,12 @@ Hi guys , this libray for changing style of text in android Developement .
 
 ```groovy
 <com.example.textstylelibrary.TextViewStyle
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:text="Hello World!"
-        app:textStyle="5"
-        app:textColor="@color/colorAccent"
-        app:textSize="70" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:text="Hello Developer"
+            app:textColor="@android:color/holo_green_dark"
+            app:textSize="80"
+            app:textStyle="3" />
 ```
 # Add Library 
 
